@@ -1,6 +1,4 @@
-Sure! Here's a full **README.md** file including the screenshots section with Markdown image syntax (ss = screenshots):
 
-````markdown
 # Duty Report Maker App
 
 ## Description
