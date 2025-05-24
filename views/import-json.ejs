@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Import JSON Reports</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="dark-bg">
+  <% if (username) { %>
+    <div class="header">
+      <span class="user-info">👤 <%= username %></span>
+      <a href="/logout" class="btn btn-secondary logout-btn">Logout</a>
+    </div>
+  <% } %>
+  <div class="container">
+    <h1 class="title">Import Reports (JSON)</h1>
+    <% if (error) { %>
+      <div class="error-message"><%= error %></div>
+    <% } %>
+    <% if (success) { %>
+      <div class="success-message"><%= success %></div>
+    <% } %>
+    <form action="/import-json" method="POST" class="form-card">
+      <label>Paste JSON array of reports:</label>
+      <textarea name="jsondata" class="input" rows="10" style="font-family:monospace;"></textarea>
+      <div class="form-actions">
+        <button type="submit" class="btn">Import</button>
+        <a href="/report" class="btn btn-secondary">Back to Reports</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html> 

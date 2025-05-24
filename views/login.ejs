@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="dark-bg">
+  <div class="container">
+    <h1 class="title">Login</h1>
+    <% if (error) { %>
+      <div class="error-message"><%= error %></div>
+    <% } %>
+    <form action="/login" method="POST" class="form-card">
+      <label>Username:</label>
+      <input type="text" name="username" required class="input">
+      <label>Password:</label>
+      <input type="password" name="password" required class="input">
+      <div class="form-actions">
+        <button type="submit" class="btn">Login</button>
+        <a href="/register" class="btn btn-secondary">Register</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html> 

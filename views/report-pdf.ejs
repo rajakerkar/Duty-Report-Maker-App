@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { background: #181818; color: #f1f1f1; font-family: 'Segoe UI', Arial, sans-serif; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { border: 1px solid #444; padding: 6px; font-size: 12px; }
+    th { background-color: #111; color: #00bcd4; }
+    tr:nth-child(even) { background: #232323; }
+    h2 { text-align: center; color: #fff; }
+  </style>
+</head>
+<body>
+  <h2>Shift Report</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Shift</th>
+        <th>Shift Time</th>
+        <th>Post</th>
+        <th>Partner Tw</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% reports.forEach(report => { %>
+        <tr>
+          <td><%= report.date %></td>
+          <td><%= report.shift %></td>
+          <td><%= report.shift === 'Custom' ? report.shiftTime : '-' %></td>
+          <td><%= report.post === 'Other' ? report.customPost : report.post %></td>
+          <td><%= report.partnerTw %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!-- views/form.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shift Report Form</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="dark-bg">
+  <% if (username) { %>
+    <div class="header">
+      <span class="user-info">👤 <%= username %></span>
+      <a href="/logout" class="btn btn-secondary logout-btn">Logout</a>
+    </div>
+  <% } %>
+  <div class="container">
+    <h1 class="title">Fill Shift Report</h1>
+    <form action="/submit" method="POST" class="form-card">
+      <label>Date:</label>
+      <input type="date" name="date" required class="input"><br><br>
+      <label>Shift:</label>
+      <select name="shift" id="shift" onchange="toggleShiftTime()" class="input">
+        <option>Morning Shift</option>
+        <option>Afternoon Shift</option>
+        <option>Night Shift</option>
+        <option>Custom</option>
+      </select><br><br>
+      <div id="shiftTimeDiv" style="display:none;">
+        <label>Shift Time Frame:</label>
+        <input type="text" name="shiftTime" class="input"><br><br>
+      </div>
+      <label>Post:</label>
+      <select name="post" id="post" onchange="toggleCustomPost()" class="input">
+        <option>LLZ</option>
+        <option>GP8</option>
+        <option>Scrap Yard & Helipad</option>
+        <option>Bike petroling</option>
+        <option>New post targhar</option>
+        <option>howe office</option>
+        <option>adani office</option>
+        <option>60meter gate</option>
+        <option>site office</option>
+        <option>material gate</option>
+        <option>AAI store</option>
+        <option>Atc Block</option>
+        <option>West Emergency Gate</option>
+        <option>PTB2</option>
+        <option>Other</option>
+      </select><br><br>
+      <div id="customPostDiv" style="display:none;">
+        <label>Custom Post:</label>
+        <input type="text" name="customPost" class="input"><br><br>
+      </div>
+      <label for="partnerTwType">Partner Type:</label>
+      <select id="partnerTwType" name="partnerTwType" onchange="handlePartnerChange(this.value)" class="input">
+        <option value="Individual">Individual</option>
+        <option value="TW">TW</option>
+      </select>
+      <div id="twNameDiv" style="display:none;">
+        <label for="partnerTwName">Enter TW Name:</label>
+        <input type="text" id="partnerTwName" name="partnerTwName" class="input">
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn">Submit</button>
+        <a href="/report" class="btn btn-secondary">Go to Report</a>
+      </div>
+    </form>
+  </div>
+  <script>
+    function toggleShiftTime() {
+      const shift = document.getElementById("shift").value;
+      document.getElementById("shiftTimeDiv").style.display = shift === "Custom" ? "block" : "none";
+    }
+    function toggleCustomPost() {
+      const post = document.getElementById("post").value;
+      document.getElementById("customPostDiv").style.display = post === "Other" ? "block" : "none";
+    }
+    function handlePartnerChange(value) {
+      const twDiv = document.getElementById('twNameDiv');
+      if (value === 'TW') {
+        twDiv.style.display = 'block';
+      } else {
+        twDiv.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>

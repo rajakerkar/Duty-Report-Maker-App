@@ -1,0 +1,41 @@
+<!-- views/report.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shift Report</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="dark-bg">
+  <% if (username) { %>
+    <div class="header">
+      <span class="user-info">👤 <%= username %></span>
+      <a href="/logout" class="btn btn-secondary logout-btn">Logout</a>
+    </div>
+  <% } %>
+  <div class="container">
+    <h1 class="title">Shift Report Table</h1>
+    <div class="form-actions">
+      <a href="/" class="btn btn-secondary">Back to Form</a>
+      <a href="/download-pdf" class="btn">Download PDF</a>
+    </div>
+    <table class="styled-table">
+      <tr>
+        <th>Date</th>
+        <th>Shift</th>
+        <th>Shift Time</th>
+        <th>Post</th>
+        <th>Partner Tw</th>
+      </tr>
+      <% reports.forEach(report => { %>
+        <tr>
+          <td><%= report.date %></td>
+          <td><%= report.shift %></td>
+          <td><%= report.shift === 'Custom' ? report.shiftTime : '-' %></td>
+          <td><%= report.post === 'Other' ? report.customPost : report.post %></td>
+          <td><%= report.partnerTw %></td>
+        </tr>
+      <% }) %>
+    </table>
+  </div>
+</body>
+</html>
