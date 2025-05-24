@@ -120,4 +120,27 @@ body.dark-bg {
   text-align: center;
   font-weight: 600;
   box-shadow: 0 2px 8px rgba(0,200,83,0.15);
+}
+.footer {
+  width: 100%;
+  background: #111;
+  color: #00bcd4;
+  text-align: center;
+  padding: 18px 0 12px 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  font-size: 1rem;
+  z-index: 100;
+  margin-top: 0;
+}
+.footer-link {
+  color: #00bcd4;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+.footer-link:hover {
+  color: #fff;
+  text-decoration: underline;
 } 
