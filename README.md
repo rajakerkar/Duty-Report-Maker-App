@@ -1,128 +1,119 @@
 
-# Duty Report Maker App
+# Duty Report Maker App 📝
 
-## Description
-
-Duty Report Maker App is a simple web application built with Node.js, Express, MongoDB, and EJS templating. It allows employees to log in and fill in their duty reports with shift-wise and post-wise details. Each employee can access their own data whenever required, with all records stored securely in the database. The app provides a report page to view all submitted records grouped by date and supports downloading the entire report as a PDF.
+A full-stack web application for employees to log and manage duty reports by shifts and posts. Users can securely log in, fill in daily reports, and view their report history with date-wise grouping and PDF download support. Built with Node.js, Express, MongoDB, and EJS templating.
 
 ---
 
-## Features
+## 🧠 Features
 
-- Employee login without session management (stateless).
-- Data entry form with fields:
+- 🔐 Employee Login (No session; stateless authentication)
+- 📝 Fill Duty Reports with fields:
   - Date
-  - Shift (Morning, Afternoon, Night, Custom with time frame)
-  - Post (predefined list with "Other" option)
-  - Partner TW (Individual or named)
-- Report page to view all submitted records, date-wise.
-- Download reports as PDF.
-- Persistent data storage in MongoDB.
-- Clean UI built with EJS templates.
+  - Shift (Morning, Afternoon, Night, or Custom time frame)
+  - Post (Predefined list + "Other" option)
+  - Partner TW (Individual or Named)
+- 📊 View all reports grouped by date
+- 📥 Download reports as PDF
+- 💾 Persistent storage using MongoDB
+- 🖥️ Clean UI using EJS templates
 
 ---
 
-## Technologies Used
+## 🛠️ Tech Stack
 
+### Backend
 - Node.js
 - Express.js
-- MongoDB (Mongoose)
-- EJS templating
-- HTML, CSS, JavaScript
+- MongoDB + Mongoose
+- EJS (Embedded JavaScript Templates)
+- PDFKit (for PDF generation)
+
+### Frontend
+- HTML, CSS, JavaScript (served by Express via EJS)
 
 ---
 
-## Setup Instructions
+## 🚀 Getting Started
 
-1. Clone the repository:
+### 📦 Prerequisites
 
-   ```bash
-   git clone https://github.com/rajakerkar/Duty-Report-Maker-App.git
-   cd Duty-Report-Maker-App
+- Node.js (v14+ recommended)
+- MongoDB (local or cloud)
+
+### 🛠️ Installation
+
+```bash
+git clone https://github.com/rajakerkar/Duty-Report-Maker-App.git
+cd Duty-Report-Maker-App
+npm install
 ````
 
-2. Install dependencies:
+### ⚙️ Environment Variables
 
-   ```bash
-   npm install
-   ```
-
-3. Create a `.env` file in the root directory and add your MongoDB connection string and port:
-
-   ```
-   MONGO_URI=your_mongodb_connection_string
-   PORT=5000
-   ```
-
-4. Start the server:
-
-   ```bash
-   npm start
-   ```
-
-5. Open your browser and visit:
-
-   ```
-   http://localhost:5000
-   ```
-
----
-
-## Folder Structure
+Create a `.env` file in the root directory:
 
 ```
-/Duty-Report-Maker-App
-├── /images           # Screenshots for README
-├── /models           # Mongoose models
-├── /routes           # Express routes
-├── /views            # EJS templates
-├── .env              # Environment variables (not in repo)
-├── app.js            # Main Express app
-├── package.json
-└── README.md
+MONGO_URI=your_mongodb_connection_string
+PORT=5000
+```
+
+### ▶️ Running the App
+
+```bash
+npm start
+```
+
+Open your browser and visit:
+
+```
+http://localhost:5000
 ```
 
 ---
 
-## Screenshots
+## 📡 API Endpoints
+
+### 🔑 Authentication
+
+| Method | Endpoint | Description    |
+| ------ | -------- | -------------- |
+| POST   | /login   | Employee login |
+
+### 📝 Reports
+
+| Method | Endpoint            | Description                        |
+| ------ | ------------------- | ---------------------------------- |
+| POST   | /report/add         | Add new duty report                |
+| GET    | /report/all         | Get all reports for logged-in user |
+| GET    | /report/downloadpdf | Download entire report as PDF      |
+
+---
+
+## 📸 Screenshots
 
 ### 🔐 Login Page
 
 ![Login Page](./images/login.png)
 
-### 📝 Data Entry Form
+### 📝 Duty Report Form
 
 ![Insert Form](./images/insert.png)
 
-### 📊 Report Page
+### 📊 Reports Page
 
 ![Report Page](./images/report.png)
 
 ---
 
-## License
+## 📄 License
 
-MIT License © 2025 Raj Akerkar
-
----
-
-## Contact
-
-For questions or contributions, feel free to open an issue or submit a pull request.
-
-````
+This project is licensed under the [MIT License](./LICENSE).
 
 ---
 
-### To add this README.md:
+## 📞 Contact
 
-- Place this file in your project root.
-- Ensure your screenshots are in `images/` folder (at root) with names: `login.png`, `insert.png`, `report.png`.
-- Commit and push:
+Created by Raj Akerkar. Feel free to open issues or submit pull requests.
 
-```bash
-git add README.md
-git commit -m "Add complete README with screenshots"
-git push origin master
-````
 
